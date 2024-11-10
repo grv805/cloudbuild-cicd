@@ -1,9 +1,9 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/genaikg/python-apps/demo-flask-app', '.']
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/mlops-441216/python-apps/demo-flask-app', '.']
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/genaikg/python-apps/demo-flask-app']
+  args: ['push', 'us-central1-docker.pkg.dev/mlops-441216/python-apps/demo-flask-app']
 
 # - name: 'gcr.io/genaikg/demo-flask-app:$COMMIT_SHA'
 #   entrypoint: 'bash'
@@ -17,7 +17,7 @@ steps:
   args:
    - 'run'
    - 'deploy'
-   - 'py-bq-load'
+   - 'demo-flask-app'
    - '--image'
    - 'us-central1-docker.pkg.dev/genaikg/python-apps/demo-flask-app'
    - '--region'
